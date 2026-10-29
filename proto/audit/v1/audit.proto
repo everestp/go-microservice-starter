@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package audit.v1;
+
+option go_package = "github.com/example/go-microservice-starter/gen/proto/audit/v1;auditv1";
+
+service AuditService {
+  rpc ListEvents(ListEventsRequest) returns (ListEventsResponse);
+}
+
+message ListEventsRequest {
+  string cursor = 1;
+  int32 limit = 2;
+}
+
+message ListEventsResponse {
+  repeated AuditEvent items = 1;
+  string next_cursor = 2;
+}
+
+message AuditEvent {
+  string id = 1;
+  string type = 2;
+  int32 version = 3;
+  string source = 4;
+  string created_at = 5;
+  string user_id = 6;
+  string data = 7;
+}

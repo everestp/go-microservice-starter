@@ -1,0 +1,27 @@
+# Go
+bin/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+coverage.out
+
+# IDE
+.vscode/
+.idea/
+
+# Local env
+.env
+.env.*
+!.env.example
+
+# Build artifacts
+/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated
+/proto/gen/

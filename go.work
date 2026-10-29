@@ -1,0 +1,9 @@
+go 1.26.8
+
+use (
+	./pkg
+	./services/audit-service
+	./services/auth-service
+	./services/gateway
+	./services/notes-service
+)

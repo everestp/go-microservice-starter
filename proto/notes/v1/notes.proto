@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package notes.v1;
+
+option go_package = "github.com/example/go-microservice-starter/gen/proto/notes/v1;notesv1";
+
+service NotesService {
+  rpc Create(CreateRequest) returns (CreateResponse);
+  rpc List(ListRequest) returns (ListResponse);
+  rpc Get(GetRequest) returns (GetResponse);
+  rpc Update(UpdateRequest) returns (UpdateResponse);
+  rpc Delete(DeleteRequest) returns (DeleteResponse);
+}
+
+message CreateRequest {
+  string title = 1;
+  string body = 2;
+}
+
+message CreateResponse {
+  string id = 1;
+  string title = 2;
+  string body = 3;
+  int64 version = 4;
+}
+
+message ListRequest {
+  string cursor = 1;
+  int32 limit = 2;
+}
+
+message ListResponse {
+  repeated Note items = 1;
+  string next_cursor = 2;
+}
+
+message Note {
+  string id = 1;
+  string title = 2;
+  string body = 3;
+  int64 version = 4;
+}
+
+message GetRequest {
+  string id = 1;
+}
+
+message GetResponse {
+  Note note = 1;
+}
+
+message UpdateRequest {
+  string id = 1;
+  int64 version = 2;
+  string title = 3;
+  string body = 4;
+}
+
+message UpdateResponse {
+  string id = 1;
+  string title = 2;
+  string body = 3;
+  int64 version = 4;
+}
+
+message DeleteRequest {
+  string id = 1;
+}
+
+message DeleteResponse {}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package events.v1;
+
+option go_package = "github.com/example/go-microservice-starter/gen/proto/events/v1;eventsv1";
+
+message CloudEvent {
+  string id = 1;
+  string type = 2;
+  int32 version = 3;
+  string source = 4;
+  string time = 5;
+  string correlation_id = 6;
+  string data = 7;
+}
